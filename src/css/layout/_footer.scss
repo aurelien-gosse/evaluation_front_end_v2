@@ -28,7 +28,7 @@
       color: #777777;
     }
     // partie haute du footer
-    .footer--up {
+    .footer--up { 
       padding: 0 15px;
       @media screen and (min-width: 600px) {
         display: flex;
@@ -75,6 +75,8 @@
           .btn {
             background: #f8b600;
             border-radius: 0;
+            border: none;
+            padding: 0px 12px;
             .fa-location-arrow {
               color: white;
             }
@@ -89,7 +91,7 @@
             width: 25%;
             margin-bottom: 25px;
             overflow: hidden;
-            img{
+            img {
               margin: 5px;
             }
           }
