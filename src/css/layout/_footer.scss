@@ -1,0 +1,129 @@
+.footer {
+  background: #04091e;
+  padding: 100px 0;
+  // pour responsive le contenu du footer
+  .wrapper {
+    max-width: 540px;
+    margin: 0 auto;
+    // responsive suivant la largeur de l'écran
+    @media screen and (min-width: 800px) {
+      max-width: 750px;
+    }
+    @media screen and (min-width: 990px) {
+      max-width: 950px;
+    }
+    @media screen and (min-width: 1200px) {
+      max-width: 1140px;
+    }
+    h6 {
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 25px;
+    }
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      color: #777777;
+    }
+    // partie haute du footer
+    .footer--up {
+      padding: 0 15px;
+      @media screen and (min-width: 600px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      // largeur des divs en fonction du responsive
+      div {
+        margin-bottom: 80px;
+        @media screen and (min-width: 600px) {
+          width: calc(50% - 10px);
+        }
+        @media screen and (min-width: 990px) {
+          width: calc(25% - 25px);
+        }
+      }
+      .navigation {
+        ul {
+          li {
+            margin-bottom: 10px;
+            a {
+              color: #777777;
+              text-decoration: none;
+              transition: 0.3s all ease-in-out;
+              &:hover {
+                color: #f8b600;
+              }
+            }
+          }
+        }
+      }
+      .newsletter {
+        // formulaire
+        form {
+          display: flex;
+          width: 100%;
+          input {
+            background: transparent;
+            padding: 10px;
+            border: solid 1px #333333;
+            color: #777777;
+            width: 100%;
+          }
+          .btn {
+            background: #f8b600;
+            border-radius: 0;
+            .fa-location-arrow {
+              color: white;
+            }
+          }
+        }
+      }
+      .instafeed {
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          li {
+            width: 25%;
+            margin-bottom: 25px;
+            overflow: hidden;
+            img{
+              margin: 5px;
+            }
+          }
+        }
+      }
+    }
+    // partie basse du footer
+    .footer--down {
+      padding: 40px 15px 0;
+      border-top: 1px solid #333;
+      @media screen and (min-width: 990px) {
+        display: flex;
+        justify-content: space-between;
+      }
+      .copyright {
+        .fa-heart {
+          color: #f8b600;
+        }
+        a {
+          color: #f8b600;
+          text-decoration: none;
+        }
+      }
+      .follow-us {
+        display: flex;
+        a {
+          margin: 15px;
+          color: #cccccc;
+          transition: 0.3s all ease-in-out;
+          &:hover {
+            color: #f8b600;
+          }
+        }
+      }
+    }
+  }
+}
