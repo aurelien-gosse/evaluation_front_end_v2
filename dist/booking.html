@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Travelista</title>
+  <meta name="description" content="A Magical Travel">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <header class="header parallax-booking header-booking" data-parallax="scroll" data-speed="0.1"
+    data-image-src="img/hero-bg-booking.jpg">
+    <!-- menu top au dessus du menu -->
+    <div class="menu-top">
+      <div class="menu-top--left">
+        <ul>
+          <li><a href="#">Visit Us</a></li>
+          <li><a href="#">Buy Tickets</a></li>
+        </ul>
+      </div>
+      <div class="menu-top--right">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-dribbble"></i></a>
+        <a href="#"><i class="fab fa-behance"></i></a>
+      </div>
+    </div>
+    <!-- menu principal -->
+    <div class="menu">
+      <a href="./"><img src="img/logo.png" alt="Travelista"></a>
+      <!-- menu caché à gauche -->
+      <div class="menu-links">
+        <ul>
+          <li><a href="./">Home</a></li>
+          <li><a href="booking.html">Book your holidays</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="menu-links-990">
+        <ul>
+          <li><a href="./">Home</a></li>
+          <li><a href="booking.html">Book your holidays</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <!-- burger -->
+      <button class="burger">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times hidden"></i>
+      </button>
+      <!-- div pour faire le filtre -->
+      <div class="filtre"></div>
+    </div>
+    <!-- partie texte du header -->
+    <div class="wrapper">
+      <div class="header-txt">
+        <h1>Book your holidays</h1>
+        <p><a href="index.html">Home </a> <span class="fas fa-arrow-right"></span> <a href="packages.html"> Book your
+            holidays</a></p>
+      </div>
+  </header>
+  <!-- destinations -->
+  <section class="destinations">
+    <div class="wrapper">
+      <div class="destinations-title">
+        <h2>Choose your destination</h2>
+        <p>Your city trip is waiting for you ♥</p>
+      </div>
+      <div class="destinations-app" id="appbooking">
+        <ul>
+          <li><a href="#" @click.prevent="choixPays('France')">France</a></li>
+          <li><a href="#" @click.prevent="choixPays('Spain')">Spain</a></li>
+          <li><a href="#" @click.prevent="choixPays('Belgium')">Belgium</a></li>
+        </ul>
+        <div v-if="pays">
+          <p>You've chosen : {{pays}}</p>
+          <p>There are <strong>{{nbSejours}}</strong> city-trips available there !</p>
+          <h2>How many people will take the trip ?</h2>
+          <select v-model="nbPersonnes">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="liste-sejour" v-if="nbPersonnes != 0">
+          <div v-for="(s, index) in sejours" :key="index">
+            <div class="sejour" v-for="(trips, index) in s.trips" :key="index">            
+              <h5>{{trips.tripName}}</h5>
+              <img :src="trips.tripPicture"
+              :alt="trips.tripName">
+              <div class="price">{{trips.tripUnitPrice}}€ <span>p/p</span></div>
+              <button>Add to cart</button>
+            </div>
+          </div>
+
+        </div>
+        <div class="price-total" v-if="nbPersonnes != 0">
+          <h5>You'll pay <strong>{{price}}€</strong></h5>
+        </div>
+      </div>
+  </section>
+  <!-- section avant le footer : custom price -->
+  <section class="custom-price">
+    <div class="wrapper">
+      <div class="custom-price-txt">
+        <h4>Did not find your Package? <br>Feel free to ask us. <br>We'll make it for you</h4>
+        <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards
+          especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond
+          reproach. inappropriate behavior is often laughed.</p>
+        <a href="#">request custom price</a>
+      </div>
+      <div class="custom-price-img">
+        <img src="img/about-img.jpg" alt="jolie monument">
+      </div>
+    </div>
+  </section>
+  <!-- balise footer ... le footer quoi -->
+  <footer class="footer">
+    <!-- div pour responsive le contenu du footer -->
+    <div class="wrapper">
+      <!-- div contenant la partie haute du footer -->
+      <div class="footer--up">
+        <div class="about">
+          <h6>about agency</h6>
+          <p>The world has become so fast paced that people don’t want to stand by reading a page of information, they
+            would much rather look at a presentation and understand the message. It has come to a point</p>
+        </div>
+        <div class="navigation">
+          <h6>navigation links</h6>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Package</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="newsletter">
+          <h6>newsletter</h6>
+          <p>For business professionals caught between high OEM price and mediocre print and graphic output.</p>
+          <form>
+            <input name="email" placeholder="Email Address" required type="email">
+            <button class="btn"><span class="fas fa-location-arrow"></span></button>
+          </form>
+        </div>
+        <div class="instafeed">
+          <h6>instafeed</h6>
+          <ul>
+            <li><img src="img/i1.jpg" alt="eenfant dos"></li>
+            <li><img src="img/i2.jpg" alt="cabane"></li>
+            <li><img src="img/i3.jpg" alt="femme"></li>
+            <li><img src="img/i4.jpg" alt="monument"></li>
+            <li><img src="img/i5.jpg" alt="valise"></li>
+            <li><img src="img/i6.jpg" alt="paysage soleil"></li>
+            <li><img src="img/i7.jpg" alt="chapeau"></li>
+            <li><img src="img/i8.jpg" alt="enfant"></li>
+          </ul>
+        </div>
+      </div>
+      <!-- div contenant la partie basse du footer -->
+      <div class="footer--down">
+        <div class="copyright">
+          <p>Copyright ©2019 All rights reserved | This template is made with <i class="far fa-heart"></i> by <a
+              href="#">Colorlib</a></p>
+        </div>
+        <div class="follow-us">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-dribbble"></i></a>
+          <a href="#"><i class="fab fa-behance"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <script src="js/main.min.js"></script>
+  <script src="js/jsbooking.min.js"></script>
+</body>
+
+</html>
